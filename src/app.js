@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const api = require(__dirname + "/routes/api");
-const page = require(__dirname + "/routes/pages");
-const default_r = require(__dirname + "/routes/default_r");
+const pages_r = require(__dirname + "/routes/pages_r");
+const index_r = require(__dirname + "/routes/index_r");
 require("dotenv").config();
 const hbs = require('express-handlebars');
 
@@ -17,8 +17,8 @@ app.use(express.static(__dirname +"/public"))
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use("/api", api);
-app.use("/pages",page);
-app.use("/",default_r);
+app.use("/pages",pages_r);
+app.use("/",index_r);
 app.use((err,req,res,next) => {
   res.status(500).send("error")
 })

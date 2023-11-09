@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const pages_c = require("../controllers/pages_c.js");
+const index_c = require("../controllers/index_c.js");
 
-router.get('/home',pages_c.home);
+router.get('/',index_c.index);
 
 module.exports = router;
