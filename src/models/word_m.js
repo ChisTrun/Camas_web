@@ -6,6 +6,7 @@ module.exports = class word {
     this.word = obj.word;
     this.mean = obj.mean;
     this.pos = obj.pos;
+    this.ipa = obj.ipa;
   }
   static async getAllVocab() {
     try {

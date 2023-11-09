@@ -2,8 +2,8 @@
     position: relative;
     transition: transform 1s;
     transform-style: preserve-3d;
-    width: 50rem;
-    height: 20rem;
+    width: 50%;
+    height: 50%;
     margin-left: auto; 
     margin-right: auto
 }

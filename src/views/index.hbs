@@ -3,10 +3,8 @@
         <p class="display-1 fw-bold">TOPIC</p>
     </div>
     <div class="container d-flex justify-content-center align-items-center flex-wrap">
-        <a name="" id="" style="background-image: url('https://th.bing.com/th/id/R.261f509a87374865e050082cecde6a2d?rik=W74FtADEF8bSHA&pid=ImgRaw&r=0');"  class="btn p-5 m-5"  href="/pages/environment" role="button"><p style="width: 20rem;" class="fw-bold display-5 text-light">Enviroment</p></a>
-        <a name="" id="" style="background-image: url('https://th.bing.com/th/id/R.261f509a87374865e050082cecde6a2d?rik=W74FtADEF8bSHA&pid=ImgRaw&r=0');"  class="btn p-5 m-5"  href="#" role="button"><p style="width: 20rem;" class="fw-bold display-5 text-light">Enviroment</p></a>
-        <a name="" id="" style="background-image: url('https://th.bing.com/th/id/R.261f509a87374865e050082cecde6a2d?rik=W74FtADEF8bSHA&pid=ImgRaw&r=0');"  class="btn p-5 m-5"  href="#" role="button"><p style="width: 20rem;" class="fw-bold display-5 text-light">Enviroment</p></a>
-        <a name="" id="" style="background-image: url('https://th.bing.com/th/id/R.261f509a87374865e050082cecde6a2d?rik=W74FtADEF8bSHA&pid=ImgRaw&r=0');"  class="btn p-5 m-5"  href="#" role="button"><p style="width: 20rem;" class="fw-bold display-5 text-light">Enviroment</p></a>
-        <a name="" id="" style="background-image: url('https://th.bing.com/th/id/R.261f509a87374865e050082cecde6a2d?rik=W74FtADEF8bSHA&pid=ImgRaw&r=0');"  class="btn p-5 m-5"  href="#" role="button"><p style="width: 20rem;" class="fw-bold display-5 text-light">Enviroment</p></a>
+        {{#each data}}
+            <a name="{{this.name}}" id="{{this.id}}" style="background-image: url('{{this.image}}');"  class="btn p-5 m-5"  href="/pages/{{this.name}}" role="button"><p style="width: 20rem;" class="fw-bold display-5 text-light">{{this.name}}</p></a>
+        {{/each}}
     </div>
 </div>

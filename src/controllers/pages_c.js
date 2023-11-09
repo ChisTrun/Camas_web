@@ -4,9 +4,17 @@ module.exports = {
     environment: async (req,res,next) => {
         try {
             const data = await word.getAllVocab();
-            res.render("environment_words",{data: data});
+            res.render("learnPage",{title: 'environment',data: data});
         } catch (error) {
             next(error);
         };
-    }
+    },
+    cooking: async (req,res,next) => {
+        try {
+            const data = await word.getAllVocab();
+            res.render("learnPage",{title: 'cooking',data: data});
+        } catch (error) {
+            next(error);
+        };
+    },
 }
