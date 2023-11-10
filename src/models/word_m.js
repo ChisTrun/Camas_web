@@ -17,6 +17,17 @@ module.exports = class word {
     } catch (error) {
       throw error;
     };
+  }
+
+  static async getRandOrderFromTopic(topic) {
+    try {
+      const result = await db.getRandom('vocab',`topic = ${topic}`,'noLimit');
+      return result.map(w => {
+        return new word(w);
+      });
+    } catch (error) {
+        console.log(error);
+    };
     
   }
 }
