@@ -1,16 +1,17 @@
 const mysql = require("mysql");
 require("dotenv").config();
 
-const db = mysql.createConnection({
+const connectionInfo = {
   host: process.env.HOST,
   user: process.env.USER,
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
-});
-
+}
+let db;
 module.exports = {
   getAll: async (tbName) => {
     try {
+      db = mysql.createConnection(connectionInfo);
       const sql = `select * from ${tbName}`;
       const result = await new Promise((resolve, reject) => {
         db.query(sql, (err, data) => {
@@ -24,10 +25,13 @@ module.exports = {
       return result;
     } catch (error) {
       throw error;
+    } finally {
+      db.end();
     }
   },
   getRandom: async (tbName, condition, limit) => {
     try {
+      db = mysql.createConnection(connectionInfo);
       const limitSql = parseInt(limit)? parseInt(limit): "";
       const conditionSql = condition != ""? 'where ' + condition: '';
       const sql = `select * from ${tbName} ${conditionSql} ORDER BY RAND() ${limitSql}`;
@@ -43,6 +47,8 @@ module.exports = {
       return result;
     } catch (error) {
       throw error;
+    } finally {
+      db.end();
     }
   },
 };
