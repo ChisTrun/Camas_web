@@ -2,12 +2,16 @@
     position: relative;
     transition: transform 1s;
     transform-style: preserve-3d;
-    width: 50%;
+    width: 60%;
     height: 50%;
     margin-left: auto; 
     margin-right: auto;
     z-index: 100;
-
+}
+@media only screen and (max-width: 600px) {
+    .flip-card {
+        width: 80%;
+    }
 }
 .card-face {
     height: 100%;
