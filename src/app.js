@@ -18,7 +18,7 @@ app.use(cors());
 app.use("/pages",pages_r);
 app.use("/",index_r);
 app.use((err,req,res,next) => {
-  res.status(500).send("error")
+  res.status(500).send(err);
 })
 
 
