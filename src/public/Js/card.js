@@ -9,6 +9,7 @@ let speakers = $(".testVoice");
 for (const speaker of speakers) {
   $(speaker).on("click", (e) => {
     e.stopPropagation();
+    speechSynthesis.cancel()
     const mss = ($(speaker)).attr('mss')
     const utterance = new SpeechSynthesisUtterance(mss);
     utterance.lang='en-US'
@@ -16,5 +17,13 @@ for (const speaker of speakers) {
     e.preventDefault();
   });
 }
+
+$('.carousel-control-prev').on('click',(e) => {
+  speechSynthesis.cancel()
+})
+
+$('.carousel-control-next').on('click',(e) => {
+  speechSynthesis.cancel()
+})
 
 
