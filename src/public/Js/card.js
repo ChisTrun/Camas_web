@@ -11,6 +11,7 @@ for (const speaker of speakers) {
     e.stopPropagation();
     const mss = ($(speaker)).attr('mss')
     const utterance = new SpeechSynthesisUtterance(mss);
+    utterance.lang='en-US'
     speechSynthesis.speak(utterance);
     e.preventDefault();
   });
