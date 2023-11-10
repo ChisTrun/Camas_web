@@ -7,11 +7,10 @@ const connectionInfo = {
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
 }
-let db;
 module.exports = {
   getAll: async (tbName) => {
+    const db = mysql.createConnection(connectionInfo);
     try {
-      db = mysql.createConnection(connectionInfo);
       const sql = `select * from ${tbName}`;
       const result = await new Promise((resolve, reject) => {
         db.query(sql, (err, data) => {
@@ -30,8 +29,8 @@ module.exports = {
     }
   },
   getRandom: async (tbName, condition, limit) => {
+    const db = mysql.createConnection(connectionInfo);
     try {
-      db = mysql.createConnection(connectionInfo);
       const limitSql = parseInt(limit)? parseInt(limit): "";
       const conditionSql = condition != ""? 'where ' + condition: '';
       const sql = `select * from ${tbName} ${conditionSql} ORDER BY RAND() ${limitSql}`;
