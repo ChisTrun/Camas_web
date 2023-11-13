@@ -14,6 +14,7 @@ for (const speaker of speakers) {
     const utterance = new SpeechSynthesisUtterance(mss);
     utterance.lang = "en-US";
     speechSynthesis.speak(utterance);
+    e.preventDefault();
   });
 }
 
