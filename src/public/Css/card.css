@@ -37,3 +37,8 @@
     -ms-user-select: none;
     user-select: none;
 }
+
+
+.textBorder {
+    text-shadow: 0 0 4px  black;
+} 

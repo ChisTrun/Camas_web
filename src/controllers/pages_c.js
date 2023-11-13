@@ -17,4 +17,20 @@ module.exports = {
             next(error);
         };
     },
+    hospital: async (req,res,next) => {
+        try {
+            const data = await word.getRandOrderFromTopic(3);
+            res.render("learnPage",{title: 'hospital',data: data});
+        } catch (error) {
+            next(error);
+        };
+    },
+    army:  async (req,res,next) => {
+        try {
+            const data = await word.getRandOrderFromTopic(4);
+            res.render("learnPage",{title: 'army',data: data});
+        } catch (error) {
+            next(error);
+        };
+    },
 }
