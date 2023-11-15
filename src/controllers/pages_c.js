@@ -4,7 +4,12 @@ module.exports = {
     environment: async (req,res,next) => {
         try {
             const data = await word.getRandOrderFromTopic(1);
-            res.render("learnPage",{title: 'environment',data: data});
+            if(req.user) {
+                res.render("learnPage",{title: 'environment',data: data,hasLogin: true,userName: req.user.username});
+            } else {
+                res.render("learnPage",{title: 'environment',data: data,hasLogin: false});
+            }
+
         } catch (error) {
             next(error);
         };
@@ -12,7 +17,11 @@ module.exports = {
     cooking: async (req,res,next) => {
         try {
             const data = await word.getRandOrderFromTopic(2);
-            res.render("learnPage",{title: 'cooking',data: data});
+            if(req.user) {
+                res.render("learnPage",{title: 'cooking',data: data,hasLogin: true,userName: req.user.username});
+            } else {
+                res.render("learnPage",{title: 'cooking',data: data,hasLogin: false});
+            }
         } catch (error) {
             next(error);
         };
@@ -20,7 +29,11 @@ module.exports = {
     hospital: async (req,res,next) => {
         try {
             const data = await word.getRandOrderFromTopic(3);
-            res.render("learnPage",{title: 'hospital',data: data});
+            if(req.user) {
+                res.render("learnPage",{title: 'hospital',data: data,hasLogin: true,userName: req.user.username});
+            } else {
+                res.render("learnPage",{title: 'hospital',data: data,hasLogin: false});
+            }
         } catch (error) {
             next(error);
         };
@@ -28,7 +41,11 @@ module.exports = {
     army:  async (req,res,next) => {
         try {
             const data = await word.getRandOrderFromTopic(4);
-            res.render("learnPage",{title: 'army',data: data});
+            if(req.user) {
+                res.render("learnPage",{title: 'army',data: data,hasLogin: true,userName: req.user.username});
+            } else {
+                res.render("learnPage",{title: 'army',data: data,hasLogin: false});
+            }
         } catch (error) {
             next(error);
         };
