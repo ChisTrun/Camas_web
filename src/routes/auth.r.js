@@ -18,7 +18,7 @@ passport.deserializeUser((id, done) => {
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL:  `${process.env.CALLBACK_URL}:${process.env.PORT}/auth/facebook/callback`  || `http://localhost:${process.env.PORT}/auth/facebook/callback`
+    callbackURL:  `${process.env.CALLBACK_URL}/auth/facebook/callback`
 },
     function (accessToken, refreshToken, profile, cb) {
         User.findUserById(profile.id, (err, row) => {
